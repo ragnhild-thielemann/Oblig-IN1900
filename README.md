@@ -76,7 +76,7 @@ $$
 
 ![Demo](images/seiro_beta_04.png)
 
-Av figurene ser man først og fremst at antall personer som blir immune (\(R(t)\)) øker raskt over tid. Når smittefrekvensen ($\beta$) økes, stiger også kurven for immune raskere, fordi flere individer smittes og går gjennom sykdomsforløpet før de til slutt når \(R\). Dette kommer av at systemet for differensiallikninger, der vi har
+Av figurene ser man først og fremst at antall personer som blir immune $(\(R(t)\))$ øker raskt over tid. Når smittefrekvensen ($\beta$) økes, stiger også kurven for immune raskere, fordi flere individer smittes og går gjennom sykdomsforløpet før de til slutt når $\(R\).$ Dette kommer av at systemet for differensiallikninger, der vi har
 
 $$
 E_1'(t) =
