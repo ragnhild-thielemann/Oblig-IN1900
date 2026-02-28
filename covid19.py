@@ -8,7 +8,7 @@ from outbreak import solve_SEIR #gir oss løsningen fra den forrgje filen
 from ODEsolver import Euler
 from lockdown import Beta
 from SEIR0 import SEIR0
-class SEIRimport(SEIR0):
+class SEIRimport(SEIR0): #impotrerer SEIR som en subklasse
     def __init__(self,b,r_ia = 0.1 , r_e2 = 1.55, lmda1 = 0.33, lmda2 = 0.5, p_a = 0.4, mu = 0.2,sigma = 10):
       
         self.sigma = sigma
