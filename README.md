@@ -101,5 +101,6 @@ $$
 
 Det gir følgene plot for sykdomsutviklingen i de ulike befolkningsgruppene
 
+![Demo](images/varierene_beta.png) 
 
-
+Simuleringen viser hvordan nedstengingen som innføres etter 100 dager får smittespredningen til å avta betydelig og flate ut. Både antall smitteutsatte og antall imune stabiliserer seg, da sykdomspredningen i befolkningen er tilnærmet lik 0. ($\beta$ = 0.083). Norge var ikke forberedt på en pandemi, men ved at smitten ble brems, fikk helsevesenet tid til å tilpasse kapasiteten, bestille nødvendig utstyr som munnbind og respiratorer, og organisere test- og karantenetiltak for å håndtere sykdommen mer effektivt.
