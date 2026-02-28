@@ -1,5 +1,7 @@
 #%%
-
+"""
+An ODEsolver with three subclasses
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -7,7 +9,7 @@ class ODEsolver: #make an ODEsolver as an class
     def __init__(self,f):
         self.f = f 
     
-    def integrer(self,u0,T,N): #integrates 
+    def integrer(self,u0,T,N): 
         self.dt = T/N
         self.u0 = np.asarray(u0)
         u_verdier = np.zeros([N+1,np.size(u0)])

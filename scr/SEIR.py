@@ -1,4 +1,4 @@
-# Imports
+#%% Imports
 from scr.SEIR0 import SEIR0, solve_SEIR0
 from scr.ODEsolver import Euler
 import matplotlib.pyplot as plt
@@ -24,8 +24,7 @@ class SEIR(SEIR0):
         self.beta = self.b_f(t)  # oppdaterer beta ved gitt tid
         return super().__call__(t, u)
 
-#%% Testfunksjoner
-
+#testfunksjoner
 def test_SEIR0_beta_const():
     """
     Tester SEIR med konstant beta mot håndberegnede verdier.
@@ -67,7 +66,7 @@ def test_SEIR0_beta_var():
 
 # Kjører testene
 test_SEIR0_beta_const()
-test_SEIR0_beta_var()
+test_SEIR0_beta_var() #testene kjører uten probmeler, som vitner om at funksjonene er korrekte
 
 # Løsning av SEIR0
 
@@ -81,7 +80,7 @@ def plot_SEIR(t, u, components=["S","I","Ia","R"]):
     Returnerer dictionary med alle komponenter.
     """
     komponenter = ["S","E1","E2","I","Ia","R"]
-    løsnings_dic = {k: u[:,i] for i,k in enumerate(komponenter)}
+    løsnings_dic = {k: u[:,i] for i,k in enumerate(komponenter)} #lagrer løsnigenene i en dictionary
     
     plt.figure(figsize=(10,6))
     for c in components:
