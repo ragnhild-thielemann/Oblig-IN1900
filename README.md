@@ -46,8 +46,12 @@ $$
 - $\lambda_2$: Hastighet for å gå fra $E_2 \to I$ (tilsvarer $1 /$ inkubasjonstid i andre fase).  
 - $p_a$: Sannsynlighet for å bli **asymptomatisk**.  
 - $\mu$: Gjenopprettingsrate (tilsvarer $1 /$ varighet av infeksjon).
-Nedenfor er noen realistiske, konstante verdier vi bruker i første oppgave.
 
+
+
+## Modelering av den enkleste modellen, med konstante parametere 
+### (scriptet SEIR0.py)
+#### Realistiske, konstante verdier for modellering
 
 | Parameter | Verdi |
 |-----------|-------|
@@ -59,9 +63,7 @@ Nedenfor er noen realistiske, konstante verdier vi bruker i første oppgave.
 | $p_a$    | 0.4   |
 | $\mu$    | 0.2   |
 
-## Modelering av den enkleste modellen, med konstante parametere 
-### (scriptet SEIR0.py)
-Vi tar utgangspunkt i startverdiene: 
+#### Startverdier for befolknigen
   - **S_0** = $5.5 \times 10^{6}$ 
   - **E₂_0** = 100
   - **E₁_0** = **Iₐ** = **R** = **I** = 0
@@ -82,8 +84,22 @@ E_1'(t) =
 \$$
 
 Antall smittede som ikke merker symptomer øker når $\beta$ øker, som igjen har ringvirkninger for de andre sykdomsgruppene. Modellen viser dermed at selv små endringer i ($\Delta$ $\beta$ = 0.4-0.33=0.07) har stor effekt på hvor raskt befolkningen oppnår immunitet. Plottene viser også at vesentlig flere blir imune med høyere smittefrekvens $\beta$, noe som gir mening, da flere gjennomgår et sykdomsforløp. 
- 
 
+
+## Modelering med variabel verdi for smitterate
+### (scriptet outbreak.py)
+
+Når en pandemi intreffer, er vil myndighetene med all sansynlighet sette inn tiltak for at smittefrekvensen ($\beta$) avtar. I første del av å gjøre modellen mer realistisk, oppretter vi en "piecewise function" for smittefrekvensen, der smittefrekvensen avtar over tid. Vi setter smittefrekvensen til 0.4 de 100 dagene før myndighetene har satt inn virksomme tiltak, og 0.083 etter myndightene har satt inn tiltak. 
+
+$$
+\beta(t) =
+\begin{cases}
+0.4, & \text{for } t < 100, \\
+0.083, & \text{for } t \geq 100.
+\end{cases}
+$$ 
+
+Det gir følgene plot for sykdomsutviklingen i de ulike befolkningsgruppene
 
 
 
