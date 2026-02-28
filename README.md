@@ -50,7 +50,7 @@ $$
 
 
 ## Modelering av den enkleste modellen, med konstante parametere 
-### (scriptet SEIR0.py)
+### ([scriptet SEIR0.py](https://github.com/ragnhild-thielemann/Oblig-IN1900/blob/main/scr/SEIR0.py))
 #### Realistiske, konstante verdier for modellering
 
 | Parameter | Verdi |
@@ -87,7 +87,7 @@ Antall smittede som ikke merker symptomer øker når $\beta$ øker, som igjen ha
 
 
 ## Modelering med variabel verdi for smitterate
-### (scriptet outbreak.py)
+### ([scriptet outbreak.py](https://github.com/ragnhild-thielemann/Oblig-IN1900/blob/main/scr/outbreak.py))
 
 Når en pandemi intreffer, er vil myndighetene med all sansynlighet sette inn tiltak for at smittefrekvensen ($\beta$) avtar. I første del av å gjøre modellen mer realistisk, oppretter vi en "piecewise function" for smittefrekvensen, der smittefrekvensen avtar over tid. Vi setter smittefrekvensen til 0.4 de 100 dagene før myndighetene har satt inn virksomme tiltak, og 0.083 etter myndightene har satt inn tiltak. 
 
