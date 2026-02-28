@@ -69,7 +69,7 @@ def plot_SEIR0(t,u):
 
 
 
-
+#endre litt 
 
 if __name__ == "__main__":
     beta = 0.4
