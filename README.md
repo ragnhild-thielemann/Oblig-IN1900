@@ -111,8 +111,18 @@ I ([scriptet SEIR.py](https://github.com/ragnhild-thielemann/Oblig-IN1900/blob/m
 Beregningene våre viste et maksimalt behov på 1423 respiratorplasser, altså mer enn dobbelt så mange som den tilgjengelige kapasiteten på 700 plasser. Dette illustrerer tydelig hvor kritisk det var å sette inn tiltak for å redusere smittespredning og forhindre unødvendige dødsfall. 
 
 ## Modellering med reele verdier for smitterate
-
-I siste del av prosjektet brukte vi FHIs verdier for smitterate ($\beta$) for å lage en mer relistisk modell for sykdomsutviklingen. I scriptet ([lockdown.py](https://github.com/ragnhild-thielemann/Oblig-IN1900/blob/main/scr/lockdown.py)) er det en klasse, som behandler dataene i tekstfilen beta.txt, slik at vi får to arrays. Disse arrayene plottes, slik at vi visuelt ser hvordan smitteraten ($\beta$) utvikler seg over tid. 
-
 ![Demo](images/beta_verdier_bilde.png)
 
+I siste del av prosjektet brukte vi FHIs anslag for smitteraten ($\beta$) for å lage en mer realistisk modell for sykdomsutviklingen. I scriptet ([lockdown.py](https://github.com/ragnhild-thielemann/Oblig-IN1900/blob/main/scr/lockdown.py)) har vi en klasse som håndterer dataene fra tekstfilen beta.txt, og omformer dem til to arrays. Disse arrayene plottes deretter for å gi en visuell fremstilling av hvordan smitteraten ($\beta$) endrer seg over tid. Endringene i $\beta$ reflekterer hvordan samfunnet åpnes og lukkes, og hvordan graden av smittebegrensende tiltak varierer.
+
+I scriptet ([covid19.py](https://github.com/ragnhild-thielemann/Oblig-IN1900/blob/main/scr/covid19.py)) bruker vi dataene fra FHI til å modelere hvordan sykdomsutvikligen skjer med varierende verdier for smitterate ($\beta$). 
+Vi har laget separate plott for de ulike populasjonsgruppene S, R, Ia og I, siden de numeriske verdiene er så store at de ikke lar seg sammenligne i samme diagram uten å miste detaljert informasjon.
+
+![Demo](images/S.png)
+![Demo](images/R.png)
+Plottet for S viser en jevn nedgang over tid, mens R øker tilsvarende, men med ulik derivert ettersom smitteraten endrer seg over tid. Dette illustrerer hvordan tiltak og åpninger i samfunnet påvirker hastigheten på smittespredningen.
+
+![Demo](images/IA.png)
+I plottet for I og Ia ser vi at antallet smittede er svært høyt i starten, noe som samsvarer med plottet for smitteraten $\beta$, som også er på sitt høyeste i begynnelsen. Etter hvert normaliseres antallet smittede, men vi observerer tydelige “fjelltopper”, som representerer smittetoppene i perioden med varierende tiltak. Dette viser hvordan endringer i $\beta$ direkte påvirker både tidspunkt og størrelse på smittebølgene, og understreker viktigheten av dynamiske modeller for å forstå sykdomsutvikling i et samfunn under tiltak.
+## Avsluttning
+Dette prosjektet viser hvordan matematiske modeller og Python kan brukes til å forstå og forutsi smittespredning under en pandemi. Ved å kombinere SEIR-modellen med FHI-data ser vi tydelig hvordan smitterate og tiltak påvirker sykdomsutviklingen, antall syke og behovet for respiratorer. Modellene våre illustrerer at uten tiltak ville kapasiteten vært kraftig overskredet, mens dynamiske endringer i smitte gir tydelige smittetopper som normaliseres over tid. Prosjektet understreker hvordan datadrevne modeller kan være et viktig verktøy i beslutningstaking og planlegging under helsekriser.
