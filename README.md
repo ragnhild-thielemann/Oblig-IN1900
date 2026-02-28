@@ -19,7 +19,7 @@ Figuren under viser overgangen fra de ulike gruppene av befolkningen i SEEIIR-mo
 ## Oppgave 1 - SEEIIR-modellen
 
 Vi tok utgangspunkt i modellen beskrevet i kapittel 5 i boken ([Solving
-Ordinary Differential Equations in Python](https://link.springer.com/book/10.1007/978-3-031-46768-4)). Denne modellen bruker de seks overnevnte kategoriene, men i første oppgave forenkler vi **E₂** og **E₁** til **E** (altså en samlet kategori for eksponerte), samt  **Iₐ** og **I** til **I** (en samlet kategori for smittede). 
+Ordinary Differential Equations in Python](https://link.springer.com/book/10.1007/978-3-031-46768-4)). 
 
 ### Systemet av  differensiallikninger
 Dette systemet modellerer hvordan en smittsom sykdom sprer seg i en befolkning. Modellen tar hensyn til forskjeller i smittsomhet og inkubasjonstid, og beskriver dynamikken mellom smitte, sykdomsutvikling og immunitet. Dette gir følgene system av differensiallikniger:
@@ -58,9 +58,17 @@ Nedenfor er noen realistiske, konstante verdier vi bruker i første oppgave.
 | $\lambda_2$ | 0.5  |
 | $p_a$    | 0.4   |
 | $\mu$    | 0.2   |
+Denne koden (SEIR0.py) inne i mappen src gir dette plottet, som viser hvordan de ulike gruppene endrer seg over tid. 
+# Modelering av den enkleste modellen, med konstante parametere
+Vi tar utgangspunkt i startverdiene: 
+  **S_0** = $5.5 \times 10^{6}$ 
+  **E₂_0** = 100
+  **E1_0** = **Iₐ** = **R** = **I** = 0
+  **T** = 200 (vi modelerer over 200 dager)
+  **N** = 400 (vi bruker 400 datapunkter). Dette gir plottet:
+  
+![Demo](images/enkleste_SEIR0-modellen.png) 
 
-
-![Demo](images/metrics_and_risk.png)
 ![Demo](images/plottssss.png)
 
 
