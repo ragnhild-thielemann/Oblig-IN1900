@@ -21,7 +21,7 @@ class SEIR0:
         lmda2 = self.lmda2
         p_a = self.p_a
         mu = self.mu
-        S,E1,E2,I,Ia,R = u #henter ut parameterne fra u
+        S,E1,E2,I,Ia,R = u #henter ut parameterne fra u. u-verdiene lagres som en vektor
         N = sum(u) # u inneholder antall i de ulike gruppene. N er antall mennesker, og vil være summen av disse
 
         dS = (-beta * S * I )/ N - r_ia * beta * S * Ia / N - r_e2 * beta * S * E2 / N #likningene vi fikk oppgitt i kompendiet
@@ -30,12 +30,12 @@ class SEIR0:
         dI = lmda2 * E2 - mu * I
         dIa = lmda1 * p_a * E1 - mu * Ia
         dR = mu * (I + Ia)
-        return np.array([dS, dE1, dE2, dI, dIa, dR])
+        return np.array([dS, dE1, dE2, dI, dIa, dR]) #retunerer derivertverdiene som en vektor
     
 
-def test_SEIR0():
+def test_SEIR0(): #testfunksjoner
     f = SEIR0() #lager en instans der vi kaller på funksjonen
-    u = [1,1,1,1,1,1]
+    u = [1,1,1,1,1,1] #enkle numeriske verdier for testfunksjonen
     cal = f(0,u) #gir en kalkulert verdi for f(0,u) med funksjon. Derivertverdiene er dog ikke avhenige av t, men funksjonen tar inn to parametere
     est = [-0.12925,-0.20075,-0.302,0.3,-0.068,0.4] #beregnete verdier for hånd
     tol = 10**(-9)
@@ -43,7 +43,7 @@ def test_SEIR0():
         sucess = abs(e_ - c_) < tol
         assert sucess, "wrong calculation"
 
-test_SEIR0()
+test_SEIR0() #kaller på testfunksjonen
 
 def solve_SEIR0(model,T,N,S_0, E2_0,beta = 0.33):
     u0 = [S_0,0,E2_0,0,0,0]
@@ -55,12 +55,18 @@ def solve_SEIR0(model,T,N,S_0, E2_0,beta = 0.33):
 
 t,u = solve_SEIR0(Euler,300,4000,5.5*10**6,100)
 def plot_SEIR0(t,u):
-    navn = ["S","E1","E2","dI","dIa","dR"]
+    navn = ["S","E1","E2","I","Ia","R"]
     farge = ["red","yellow","hotpink","skyblue","blue","green"]
 
     for n,n_ in (enumerate(navn)):
         plt.plot(t,u[:,n],label = n_, color = farge[n])
         plt.legend()
+#for at plottet skal bli pent
+    plt.xlabel("Tid (dager)")
+    plt.ylabel("Antall mennesker i de ulike sykdomsgruppene")
+    plt.grid(True)
+    plt.title("SEIR0-modellen")
+
 
 
 

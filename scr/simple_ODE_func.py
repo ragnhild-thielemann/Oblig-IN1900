@@ -1,10 +1,10 @@
 #%%
 
+"""
+En enkel ODE-solver
+"""
 import numpy as np
 import matplotlib.pyplot as plt
-
-def f(u,t):
-    return u/5
 
 class ODEsolver:
     def __init__(self,f):
@@ -25,11 +25,3 @@ class ForwardEuler(ODEsolver):
     def ettstegfrem(self,u,t):
         return self.f(u,t)
     
-f_ = ForwardEuler(f)
-u,t = f_.integrer(0.1,20,5)
-plt.plot(t,u)
-
-eksakt = lambda t: 0.1*np.exp(0.2*t)
-t_verdier = np.linspace(0,20,10000)
-u_verdier = eksakt(t_verdier)
-plt.plot(t_verdier,u_verdier)
