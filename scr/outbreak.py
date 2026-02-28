@@ -1,8 +1,8 @@
 #%%
 import numpy as np
 import matplotlib.pyplot as plt
-from ODEsolver import Euler
-from SEIR import SEIR, plot_SEIR
+from scr.ODEsolver import Euler
+from scr.SEIR import SEIR, plot_SEIR
 
 def beta(t): #betafunksjon der beta avtar etter 100 dager, da samfunnet stenger ned 
     if t < 100:

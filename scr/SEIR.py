@@ -1,6 +1,6 @@
 # Imports
-from SEIR0 import SEIR0, solve_SEIR0
-from ODEsolver import Euler
+from scr.SEIR0 import SEIR0, solve_SEIR0
+from scr.ODEsolver import Euler
 import matplotlib.pyplot as plt
 import numpy as np
 

@@ -3,9 +3,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from datetime import date, timedelta
-from SEIR import plot_SEIR
-from outbreak import solve_SEIR #gir oss løsningen fra den forrgje filen
-from ODEsolver import Euler
+from scr.SEIR import plot_SEIR
+from scr.outbreak import solve_SEIR #gir oss løsningen fra den forrgje filen
+from scr.ODEsolver import Euler
 class Beta:
     def __init__(self,filename):
         with open(filename,"r") as fil:

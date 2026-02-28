@@ -2,7 +2,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-from ODEsolver import Euler
+from scr.ODEsolver import Euler
 class SEIR0:
     def __init__(self,beta = 0.33,r_ia = 0.1 , r_e2 = 1.25, lmda1 = 0.33, lmda2 = 0.5, p_a = 0.4, mu = 0.2):
         self.beta = beta 
