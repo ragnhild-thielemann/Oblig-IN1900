@@ -1,8 +1,8 @@
-## Modelering av pandemi med ODE og Python 
-I denne oppgaven skal implementeres en ODE-basert versjon av SEEIIR-modellen, som tilsvarer modellen  Folkehelseinstituttet brukte for å beskrive spredningen av Covid-19-pandemien. Oppgaven implementere  modellen som et system av differensialligninger og simulerer smitteutviklignen over tid av smitteutviklingen over tid. Oppgaven tar utgangspunkt i modellen beskrevet i kapittel 5 i boken ([Solving
+# Simulering av smittespredning med ODE-modeller i Python
+I denne oppgaven skal implementeres en ODE-basert versjon av SEEIIR-modellen, som tilsvarer modellen  Folkehelseinstituttet (FHI) brukte for å beskrive spredningen av Covid-19-pandemien. Oppgaven implementere  modellen som et system av differensialligninger og simulerer smitteutviklignen over tid av smitteutviklingen over tid. Oppgaven tar utgangspunkt i modellen beskrevet i kapittel 5 i boken ([Solving
 Ordinary Differential Equations in Python](https://link.springer.com/book/10.1007/978-3-031-46768-4)). 
 
-## Notasjonen i oppgaven
+### Notasjonen i oppgaven
 
 Under analysen av de ulike befolkningsgruppene brukte vi følgende notasjon:
 
@@ -49,7 +49,7 @@ $$
 
 
 
-## Modelering av den enkleste modellen, med konstante parametere 
+## Modelering med konstante parametere 
 ### ([scriptet SEIR0.py](https://github.com/ragnhild-thielemann/Oblig-IN1900/blob/main/scr/SEIR0.py))
 #### Realistiske, konstante verdier for modellering
 
@@ -103,4 +103,16 @@ Det gir følgene plot for sykdomsutviklingen i de ulike befolkningsgruppene
 
 ![Demo](images/varierene_beta.png) 
 
-Simuleringen viser hvordan nedstengingen som innføres etter 100 dager får smittespredningen til å avta betydelig og flate ut. Både antall smitteutsatte og antall imune stabiliserer seg, da sykdomspredningen i befolkningen er tilnærmet lik 0. ($\beta$ = 0.083). Norge var ikke forberedt på en pandemi, men ved at smitten ble brems, fikk helsevesenet tid til å tilpasse kapasiteten, bestille nødvendig utstyr som munnbind og respiratorer, og organisere test- og karantenetiltak for å håndtere sykdommen mer effektivt.
+Simuleringen viser hvordan nedstengingen som innføres etter 100 dager får smittespredningen til å avta betydelig og flate ut. Både antall smitteutsatte og antall imune stabiliserer seg, da sykdomspredningen i befolkningen er tilnærmet lik 0. ($\beta$ = 0.083). Norge var ikke forberedt på en pandemi, men ved at smitten ble brems, fikk helsevesenet tid til å tilpasse kapasiteten, bestille nødvendig utstyr som munnbind og respiratorer, og organisere test- og karantenetiltak for å håndtere sykdommen mer effektivt. Å bremse sykdomspredningen var nødvendig for å hindre dødsfall.
+
+### Estimering av antall respiratorplasser som kreves
+I ([scriptet SEIR.py](https://github.com/ragnhild-thielemann/Oblig-IN1900/blob/main/scr/SEIR.py) estimerte  hvor mange respiratorplasser som vi hadde krevd dersom, dersom myndighetene ikke hadde iverksatt tiltak.($\beta$ med konstant verdi på 0.33) Vi la til grunn at 20 % av de smittede med Covid-19 utvikler alvorlig sykdom, og at 5 % av disse igjen ville trenge respiratorbehandling.
+
+Beregningene våre viste et maksimalt behov på 1423 respiratorplasser, altså mer enn dobbelt så mange som den tilgjengelige kapasiteten på 700 plasser. Dette illustrerer tydelig hvor kritisk det var å sette inn tiltak for å redusere smittespredning og forhindre unødvendige dødsfall. 
+
+## Modellering med reele verdier for smitterate
+
+I siste del av prosjektet brukte vi FHIs verdier for smitterate ($\beta$) for å lage en mer relistisk modell for sykdomsutviklingen. I scriptet ([lockdown.py](https://github.com/ragnhild-thielemann/Oblig-IN1900/blob/main/scr/lockdown.py)) er det en klasse, som behandler dataene i tekstfilen beta.txt, slik at vi får to arrays. Disse arrayene plottes, slik at vi visuelt ser hvordan smitteraten ($\beta$) utvikler seg over tid. 
+
+![Demo](images/beta_verdier_bilde.png)
+
