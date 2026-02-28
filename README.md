@@ -1,5 +1,6 @@
 ## Modelering av pandemi med ODE og Python 
-I denne oppgaven skal implementeres en ODE-basert versjon av SEEIIR-modellen, som tilsvarer modellen  Folkehelseinstituttet brukte for å beskrive spredningen av Covid-19-pandemien. Oppgaven implementere  modellen som et system av differensialligninger og simulerer smitteutviklignen over tid av smitteutviklingen over tid.
+I denne oppgaven skal implementeres en ODE-basert versjon av SEEIIR-modellen, som tilsvarer modellen  Folkehelseinstituttet brukte for å beskrive spredningen av Covid-19-pandemien. Oppgaven implementere  modellen som et system av differensialligninger og simulerer smitteutviklignen over tid av smitteutviklingen over tid. Oppgaven tar utgangspunkt i modellen beskrevet i kapittel 5 i boken ([Solving
+Ordinary Differential Equations in Python](https://link.springer.com/book/10.1007/978-3-031-46768-4)). 
 
 ## Notasjonen i oppgaven
 
@@ -16,10 +17,9 @@ Figuren under viser overgangen fra de ulike gruppene av befolkningen i SEEIIR-mo
 
 ![Demo](images/notasjon.png)
 
-## Oppgave 1 - SEEIIR-modellen
+## SEEIIR-modellen
 
-Vi tok utgangspunkt i modellen beskrevet i kapittel 5 i boken ([Solving
-Ordinary Differential Equations in Python](https://link.springer.com/book/10.1007/978-3-031-46768-4)). 
+
 
 ### Systemet av  differensiallikninger
 Dette systemet modellerer hvordan en smittsom sykdom sprer seg i en befolkning. Modellen tar hensyn til forskjeller i smittsomhet og inkubasjonstid, og beskriver dynamikken mellom smitte, sykdomsutvikling og immunitet. Dette gir følgene system av differensiallikniger:
@@ -58,19 +58,31 @@ Nedenfor er noen realistiske, konstante verdier vi bruker i første oppgave.
 | $\lambda_2$ | 0.5  |
 | $p_a$    | 0.4   |
 | $\mu$    | 0.2   |
-Denne koden (SEIR0.py) inne i mappen src gir dette plottet, som viser hvordan de ulike gruppene endrer seg over tid. 
-# Modelering av den enkleste modellen, med konstante parametere
+
+## Modelering av den enkleste modellen, med konstante parametere 
+### (scriptet SEIR0.py)
 Vi tar utgangspunkt i startverdiene: 
-  **S_0** = $5.5 \times 10^{6}$ 
-  **E₂_0** = 100
-  **E1_0** = **Iₐ** = **R** = **I** = 0
-  **T** = 200 (vi modelerer over 200 dager)
-  **N** = 400 (vi bruker 400 datapunkter). Dette gir plottet:
+  - **S_0** = $5.5 \times 10^{6}$ 
+  - **E₂_0** = 100
+  - **E₁_0** = **Iₐ** = **R** = **I** = 0
+  - **T** = 200 (vi modelerer over 200 dager)
+  - **N** = 400 (vi bruker 400 datapunkter).
+#### Dersom vi setter $\beta$ konstant lik 0.33 gir det plottet
   
-![Demo](images/enkleste_SEIR0-modellen.png) 
+![Demo](images/seiro_beta_033.png) 
+#### Dersom vi øker $\beta$, altså har en høyere smittefrekvens gir dette vi plottet
 
-![Demo](images/plottssss.png)
+![Demo](images/seiro_beta_04.png)
 
+Av figurene ser man først og fremst at antall personer som blir immune (\(R(t)\)) øker raskt over tid. Når smittefrekvensen ($\beta$) økes, stiger også kurven for immune raskere, fordi flere individer smittes og går gjennom sykdomsforløpet før de til slutt når \(R\). Dette kommer av at systemet for differensiallikninger, der vi har
+
+$$
+E_1'(t) =
+\frac{\beta S I}{N} + r_i \frac{\beta S I_a}{N} + r_e^2 \frac{\beta S E_2}{N},
+\$$
+
+Antall smittede som ikke merker symptomer øker når $\beta$ øker, som igjen har ringvirkninger for de andre sykdomsgruppene. Modellen viser dermed at selv små endringer i ($\Delta$ $\beta$ = 0.4-0.33=0.07) har stor effekt på hvor raskt befolkningen oppnår immunitet. Plottene viser også at vesentlig flere blir imune med høyere smittefrekvens $\beta$, noe som gir mening, da flere gjennomgår et sykdomsforløp. 
+ 
 
 
 
