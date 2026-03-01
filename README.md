@@ -118,7 +118,7 @@ $$R'(t) = \mu (I + I_a) $$
 #### Dersom vi setter $\beta$ konstant lik 0.33 gir det plottet
   
 ![Demo](images/seiro_beta_033.png) 
-#### Dersom vi øker $\beta$, altså har en høyere smittefrekvens gir dette vi plottet
+#### Dersom vi øker $\beta$ til 0.4, altså har en høyere smittefrekvens får vi dette plottet
 
 ![Demo](images/seiro_beta_04.png)
 
