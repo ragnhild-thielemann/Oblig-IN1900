@@ -27,20 +27,63 @@ Figuren under viser overgangen fra de ulike gruppene av befolkningen i SEEIIR-mo
 ### Systemet av  differensiallikninger
 Dette systemet modellerer hvordan en smittsom sykdom sprer seg i en befolkning. Modellen tar hensyn til forskjeller i smittsomhet og inkubasjonstid, og beskriver dynamikken mellom smitte, sykdomsutvikling og immunitet. Dette gir følgene system av differensiallikniger:
 
+##### **S** = Mottakelige (susceptible)
+    
 
-$$
-\begin{aligned}
-S'(t) &= - \beta \frac{S I}{N} - r_{ia} \beta \frac{S I_a}{N} - r_{e2} \beta \frac{S E_2}{N}, \\
-E_1'(t) &= \beta \frac{S I}{N} + r_{ia} \beta \frac{S I_a}{N} + r_{e2} \beta \frac{S E_2}{N} - \lambda_1 E_1, \\
-E_2'(t) &= \lambda_1 (1 - p_a) E_1 - \lambda_2 E_2, \\
-I'(t) &= \lambda_2 E_2 - \mu I, \\
-I_a'(t) &= \lambda_1 p_a E_1 - \mu I_a, \\
-R'(t) &= \mu (I + I_a).
-\end{aligned}
-$$
+  
+$$ S'(t) = - \beta \frac{S I}{N} - r_{ia} \beta \frac{S I_a}{N} - r_{e2} \beta \frac{S E_2}{N}, $$
+
+  - Sårbare personer reduseres når de smittes av noen som er enten 
+  symptomatiske, asymptomatiske, eller i en smittsom inkubasjonsfase.
+##### **E₁** = Eksponert for smitte, men ikke smittsom
+
+  
+$$ E_1'(t) = \beta \frac{S I}{N} + r_{ia} \beta \frac{S I_a}{N} + r_{e2} \beta \frac{S E_2}{N} - \lambda_1 E_1 $$
 
 
-### Parametrene
+- Personer går fra sårbar → eksponert når de blir smittet, og forlater eksponert-fasen med hastighet $\lambda_1$ når de går videre til enten asymptomatisk eller symptomatisk fase. 
+
+##### **E₂** = Eksponert for smitte og smittsom
+
+  
+$$ E_2'(t) = \lambda_1 (1 - p_a) E_1 - \lambda_2 E_2, $$
+
+ - Fra $E_1$ går en andel $1 - p_a$ til $E_2$ (blir symptomatiske)
+ - De forlater $E_2$ til i med hastighet $\lambda_2$
+
+
+##### **I** = Smittet med symptomer
+
+
+
+$$I'(t) = \lambda_2 E_2 - \mu I, $$
+
+
+
+- Symptomatiske får smitte fra $E_2$ og forlater $I$ når de blir friske eller isolert
+
+##### **Iₐ** = Smittet uten symptomer (asymptomatisk)
+
+ 
+$$I_a'(t) = \lambda_1 p_a E_1 - \mu I_a, $$
+
+
+  - De kommer direkte fra $E_1$ med en andel $p_a$
+  - De forlater denne gruppen når de blir friske med samme rate $\mu$
+  - Asymptomatiske blir smittet, men har ingen symptomer
+
+##### **R** = Frisk / fjernet fra smitteforløpet (recovered)
+
+ 
+$$R'(t) = \mu (I + I_a) $$
+
+
+- De som er friske. ALle som er blitt friske går fra $I$ eller $I_a$
+
+
+
+
+## Parametrene
 
 - $\beta$: **Smittefrekvens** mellom en smittet og en sårbar person.  
 - $r_{ia}$: Relativ smittsomhet til asymptomatiske ($I_a$) sammenlignet med symptomatiske ($I$).  
