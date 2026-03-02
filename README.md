@@ -1,6 +1,6 @@
 # Simulering av smittespredning med ODE-modeller i Python
 
-### Prosjektoppgave IN1900, høst 2025
+## Prosjektoppgave IN1900, høst 2025
 
 I denne oppgaven skal implementeres en ODE-basert versjon av SEEIIR-modellen, som tilsvarer modellen  Folkehelseinstituttet (FHI) brukte for å beskrive spredningen av Covid-19-pandemien. Oppgaven implementere  modellen som et system av differensialligninger og simulerer smitteutviklignen over tid av smitteutviklingen over tid. Oppgaven tar utgangspunkt i modellen beskrevet i kapittel 5 i boken ([Solving
 Ordinary Differential Equations in Python](https://link.springer.com/book/10.1007/978-3-031-46768-4)). 
