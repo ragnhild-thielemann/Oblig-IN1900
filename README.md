@@ -145,11 +145,18 @@ $$
 \end{cases}
 $$ 
 
-Det gir følgene plot for sykdomsutviklingen i de ulike befolkningsgruppene
+### Det gir følgene plot for sykdomsutviklingen i de ulike befolkningsgruppene
 
-![Demo](images/varierene_beta.png) 
+![Demo](images/varierene_beta.png)
+
+
 
 Simuleringen viser hvordan nedstengingen som innføres etter 100 dager får smittespredningen til å avta betydelig og flate ut. Både antall smitteutsatte og antall imune stabiliserer seg, da sykdomspredningen i befolkningen er tilnærmet lik 0. ($\beta$ = 0.083). Norge var ikke forberedt på en pandemi, men ved at smitten ble brems, fikk helsevesenet tid til å tilpasse kapasiteten, bestille nødvendig utstyr som munnbind og respiratorer, og organisere test- og karantenetiltak for å håndtere sykdommen mer effektivt. Å bremse sykdomspredningen var nødvendig for å hindre dødsfall.
+#### Plott for antall innfiserte
+![Demo](images/avtakene%20antall%20infiserte.png) 
+
+Siden de numeriske verdiene varierer mye mellom de ulike gruppene, gir det mer mening å analysere antall infiserte isolert. Plottet viser tydelig at antall infiserte øker frem til omtrent dag 100, før det begynner å avta når myndighetene setter inn tiltak. 
+
 
 ### Estimering av antall respiratorplasser som kreves
 I [scriptet SEIR.py](https://github.com/ragnhild-thielemann/Oblig-IN1900/blob/main/scr/SEIR.py) estimerte  hvor mange respiratorplasser som vi hadde krevd dersom, dersom myndighetene ikke hadde iverksatt tiltak.($\beta$ med konstant verdi på 0.33) Vi la til grunn at 20 % av de smittede med Covid-19 utvikler alvorlig sykdom, og at 5 % av disse igjen ville trenge respiratorbehandling.
